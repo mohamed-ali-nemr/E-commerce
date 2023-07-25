@@ -11,10 +11,10 @@ function App() {
         <main className="container">
           <Home />
           {/* <ProductDetails /> */}
-          <Switch>
-            {/* <Route path="/" Component={Home} />
-            <Route path="/details" Component={ProductDetails} /> */}
-          </Switch>
+          {/* <Switch>
+            <Route path="/" exact Component={Home} />
+            <Route path="/details" Component={ProductDetails} />
+          </Switch> */}
         </main>
       </div>
     </Router>
