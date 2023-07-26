@@ -1,4 +1,11 @@
+import Post from "./Post";
+
+
 const ProductDetails = () => {
+  // console.log(props)
+
+
+  
   return (
     <article className="container post-details">
       <div className="post-details-title">

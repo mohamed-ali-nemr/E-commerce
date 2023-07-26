@@ -5,20 +5,21 @@ import ProductDetails from "./components/posts/ProductDetails";
 import ChechOut from "./components/ChechOut";
 
 function App() {
+  // console.log("App comp.")
   return (
     <Router>
       <div className="App">
         <Header />
         <main className="container">
-          <Home />
+          {/* <Home /> */}
           {/* <ProductDetails /> */}
           {/* <ChechOut /> */}
 
-          {/* <Switch>
-            <Route path="/home" exact Component={Home} />
-            <Route path="/details" Component={ProductDetails} />
-            <Route path="/check" Component={ChechOut} />
-          </Switch> */}
+          <Switch>
+            <Route path="/" exact  > <Home /> </Route> 
+            <Route path="/details/:id" > <ProductDetails /> </Route>
+            <Route path="/check-out" > <ChechOut /> </Route>
+          </Switch>
         </main>
       </div>
     </Router>

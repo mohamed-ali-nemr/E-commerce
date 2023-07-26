@@ -1,11 +1,13 @@
 import { useState } from "react";
 
-import Post from "./post";
+import Post from "./Post";
+import ProductDetails from "./ProductDetails"
 
 const Posts = () => {
   let img1 = "https://images.unsplash.com/photo-1498050108023-c5249f4df085";
   let img2 = "https://images.unsplash.com/photo-1505740420928-5e560c06d30e";
   let img3 = "https://images.unsplash.com/photo-1454165205744-3b78555e5572";
+
   const [posts, setPost] = useState([
     {
       id: 1,
