@@ -34,9 +34,10 @@ const Posts = () => {
 
   return (
     <section className="posts">
-      {posts.map((post) => (
-        <Post key={post.id} post={post} handleAddToCart={handleAddToCart} />
-      ))}
+      {posts &&
+        posts.map((post) => (
+          <Post key={post.id} post={post} handleAddToCart={handleAddToCart} />
+        ))}
 
       {/* <Post />
       <Post />
