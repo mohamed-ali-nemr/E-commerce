@@ -10,15 +10,15 @@ function App() {
       <div className="App">
         <Header />
         <main className="container">
-          {/* <Home /> */}
+          <Home />
           {/* <ProductDetails /> */}
           {/* <ChechOut /> */}
 
-          <Switch>
+          {/* <Switch>
             <Route path="/home" exact Component={Home} />
             <Route path="/details" Component={ProductDetails} />
             <Route path="/check" Component={ChechOut} />
-          </Switch>
+          </Switch> */}
         </main>
       </div>
     </Router>
