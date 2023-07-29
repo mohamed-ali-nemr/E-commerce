@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
-import Home from "./components/Home";
-import ProductDetails from "./components/posts/ProductDetails";
-import ChechOut from "./components/ChechOut";
+import Home from "./pages/Home";
+import ProductDetails from "./pages/ProductDetails";
+import ChechOut from "./pages/ChechOut";
 
 function App() {
   // console.log("App comp.")
