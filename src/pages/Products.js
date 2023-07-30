@@ -32,7 +32,7 @@ const Products = () => {
   //   },
   // ]);
 
-  const handleAddToCart = () => {};
+  const handleDetails = () => {};
 
   return (
     <section className="posts">
@@ -41,7 +41,7 @@ const Products = () => {
           <ProductItem
             key={product.id}
             product={product}
-            handleAddToCart={handleAddToCart}
+            handleAddToCart={handleDetails}
           />
         ))}
 
