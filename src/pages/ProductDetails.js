@@ -1,16 +1,17 @@
-import { getById } from "../api/productsApi";
+import React, { useContext } from "react";
+import { ProductContext } from "./Products";
 
 const ProductDetails = (props) => {
-  // console.log("details page");
-  // console.log(props);
-
+  const productsCont = useContext(ProductContext);
+  console.log(props)
   return (
     <article className="container post-details">
       <div className="post-details-title">
+        
         <h1>{}</h1>
         {/* <button className="btn btn-danger"> Delete </button> */}
       </div>
-      <img
+      {/* <img
         src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80"
         alt=""
         className="post-details-img"
@@ -26,7 +27,7 @@ const ProductDetails = (props) => {
         dolores ea veniam a quam quod, aliquid neque quidem amet aut nemo
         perferendis harum facere mollitia molestias sunt laudantium quia quae
         laborum magni? Impedit labore repellat commodi officia asperiores.
-      </p>
+      </p> */}
     </article>
   );
 };
