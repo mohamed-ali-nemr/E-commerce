@@ -1,10 +1,10 @@
-import ProductDetails from "./posts/ProductDetails";
-import Posts from "./posts/Posts";
+import ProductDetails from "./ProductDetails";
+import Products from "./Products";
 
 const Home = () => {
   return (
     <div className="home">
-      <Posts />
+      <Products />
       {/* <ProductDetails /> */}
     </div>
   );
