@@ -1,12 +1,18 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import product from "../api/prouductsApi.json";
 
 const ProductDetails = () => {
-  
-  
-  
   const id = useParams();
-  console.log(id)
+  console.log(id);
+
+  const pro1 = product.find((item) => item.title === "post title 1");
+  console.log(pro1);
+  // const pro2 = product.find((item) => item.id === id);
+  // console.log(pro2);
+  // const pro3 = product.find((item) => item.id === id);
+  // console.log(pro3);
+
   return (
     <article className="container post-details">
       <div className="post-details-title">
