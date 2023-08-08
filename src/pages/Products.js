@@ -2,7 +2,6 @@ import React from "react";
 import ProductItem from "../components/ProductItem";
 import ProductsApi from "../api/prouductsApi.json";
 
-export const ProductContext = React.createContext();
 
 const Products = () => {
   // let img1 = "https://images.unsplash.com/photo-1498050108023-c5249f4df085";
@@ -33,7 +32,9 @@ const Products = () => {
   //   },
   // ];
 
-  const handleDetails = () => {};
+  const handleDetails = () => {
+    console.log("details on products is clicked ")
+  };
 
   return (
     <section className="posts">

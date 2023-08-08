@@ -1,6 +1,8 @@
 import React from "react";
 
-const CartItem = ({ product, handleDelete }) => {
+const CartItem = (props, { handleDelete }) => {
+  const { item } = props;
+  const { product } = item;
   return (
     <div className="card">
       <img src={product.image} alt="" />
