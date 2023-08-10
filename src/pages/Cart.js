@@ -11,7 +11,7 @@ const Cart = (props) => {
       <h1>Cart Page</h1>
       <div className="row">
         {props.cartItems.map((item, index) => (
-          <div className={"col-4"} key={item.product.id}>
+          <div className={"col-4"} key={index}>
             <CartItem item={item} index={index} handleDelete={handleDelete} />
           </div>
         ))}
