@@ -1,7 +1,7 @@
 import React from "react";
 
 const CartItem = (props, { handleDelete }) => {
-  const { item } = props;
+  const { item, index } = props;
   const { product } = item;
   return (
     <div className="card">

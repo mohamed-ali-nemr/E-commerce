@@ -43,7 +43,7 @@ const Products = () => {
           <ProductItem
             key={product.id}
             product={product}
-            handleAddToCart={handleDetails}
+            handleDetails={handleDetails}
           />
         ))}
     </section>

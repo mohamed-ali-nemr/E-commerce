@@ -1,4 +1,5 @@
 import { createStore } from "redux";
+import cartReducer from "./reducers";
 
 const initialState = {
   cart: [
@@ -10,14 +11,16 @@ const initialState = {
         image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
         author: "Admin1",
       },
-    }
+    },
+  
+
   ]
 };
 
-const reducers=(state)=>{
-    return state;
-}
+// const reducers=(state)=>{
+//     return state;
+// }
 
-const store =createStore(reducers, initialState);
+const store =createStore(cartReducer, initialState);
 
 export default store ;

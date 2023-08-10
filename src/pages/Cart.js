@@ -10,9 +10,9 @@ const Cart = (props) => {
     <div>
       <h1>Cart Page</h1>
       <div className="row">
-        {props.cartItems.map((item) => (
+        {props.cartItems.map((item, index) => (
           <div className={"col-4"} key={item.product.id}>
-            <CartItem item={item} handleAddToCart={handleDelete} />
+            <CartItem item={item} index={index} handleDelete={handleDelete} />
           </div>
         ))}
       </div>
