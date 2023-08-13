@@ -12,15 +12,13 @@ const initialState = {
         author: "Admin1",
       },
     },
-  
-
-  ]
+  ],
 };
 
 // const reducers=(state)=>{
 //     return state;
 // }
 
-const store =createStore(cartReducer, initialState);
+const store = createStore(cartReducer, initialState);
 
-export default store ;
+export default store;

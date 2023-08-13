@@ -16,10 +16,10 @@ export default function cartReducer(state, action) {
     }
 
     case REMOVE_FROM_CART: {
-
       const item_index = action.index;
-      const new_state = { ...state };
+      const new_state = {...state};
       delete new_state.cart[item_index];
+      // new_state.splice(item_index, 1);
       return new_state;
     }
 
