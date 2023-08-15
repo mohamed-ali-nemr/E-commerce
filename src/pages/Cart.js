@@ -12,7 +12,6 @@ const Cart = (props) => {
   const handleDeleteToCart = (index) => {
     // console.log("delete From card was clicked ");
     dispatch(removeFromCart(index));
-    // setState({state});
   };
   return (
     <div>

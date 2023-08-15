@@ -3,17 +3,15 @@ import { connect } from "react-redux";
 import { removeFromCart } from "../store/actions/actions";
 
 const CartItem = (props) => {
-  const { item, index ,handleDeleteToCart} = props;
+  const { item, index, handleDeleteToCart } = props;
   const { product } = item;
 
   // const [state, setState] = useState();
 
- 
-
-  useEffect(() => {
-    // console.log("class component cart item mounting");
-    // handleDeleteToCart();
-  }, [product]);
+  // useEffect(() => {
+  // console.log("class component cart item mounting");
+  // setState({state});
+  // }, [product]);
 
   return (
     <div className="card">
