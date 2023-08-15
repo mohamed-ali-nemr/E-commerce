@@ -1,5 +1,11 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./store/store"
+
+//component
 import Header from "./components/Header";
+
+//pages 
 import Home from "./pages/Home";
 import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart"
@@ -28,4 +34,13 @@ function App() {
   );
 }
 
-export default App;
+function AppWithStore() {
+  return (
+    <Provider store={store}>
+             <App />
+    </Provider>
+         );
+}
+
+
+export default AppWithStore;

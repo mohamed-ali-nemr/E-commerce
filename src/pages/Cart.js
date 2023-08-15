@@ -1,11 +1,31 @@
-import React from 'react'
+import React from "react";
+import CartItem from "../components/CartItem";
+import ProductsApi from "../api/prouductsApi.json";
+import { connect } from "react-redux";
 
-const Cart = () => {
+const Cart = (props) => {
+  const handleDelete = () => {};
+
   return (
     <div>
-      <h2>Cart Page</h2>
+      <h1>Cart Page</h1>
+      <div className="row">
+        {props.cartItems.map((item, index) => (
+          <div className={"col-4"} key={index}>
+            <CartItem item={item} index={index} handleDelete={handleDelete} />
+          </div>
+        ))}
+      </div>
+      <br />
+      <button className="btn btn-primary btn-block">Pay order</button>
     </div>
-  )
-}
+  );
+};
 
-export default Cart
+const mapStateToProps = (state) => {
+  return {
+    cartItems: state.cart,
+  };
+};
+
+export default connect(mapStateToProps)(Cart);

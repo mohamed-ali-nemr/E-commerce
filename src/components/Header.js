@@ -7,7 +7,7 @@ const Header = () => {
       <nav className="navbar ">
         <h1>E-commerce</h1>
         <div className="links">
-          <Link to="/" className="btn"> Prouduct </Link>
+          <Link to="/" > Prouduct </Link>
           <Link to="/cart"> Cart </Link>
           <Link to="/check-out"> Check Out </Link>
         </div>
