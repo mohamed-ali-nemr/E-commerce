@@ -1,18 +1,30 @@
 import React from "react";
 import CartItem from "../components/CartItem";
 import ProductsApi from "../api/prouductsApi.json";
-import { connect } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
+import { removeFromCart } from "../store/actions/actions";
 
 const Cart = (props) => {
-  const handleDelete = () => {};
+  const cart = useSelector((s) => s.cart);
+  const dispatch = useDispatch();
+  console.log(cart);
 
+  const handleDeleteToCart = (index) => {
+    // console.log("delete From card was clicked ");
+    dispatch(removeFromCart(index));
+    // setState({state});
+  };
   return (
     <div>
       <h1>Cart Page</h1>
       <div className="row">
-        {props.cartItems.map((item, index) => (
-          <div className={"col-4"} key={index}>
-            <CartItem item={item} index={index} handleDelete={handleDelete} />
+        {cart.map((item, index) => (
+          <div className={"col-4"} key={item.product.id}>
+            <CartItem
+              handleDeleteToCart={handleDeleteToCart}
+              item={item}
+              index={index}
+            />
           </div>
         ))}
       </div>
@@ -28,4 +40,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Cart);
+export default Cart;

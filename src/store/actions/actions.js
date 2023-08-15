@@ -8,10 +8,11 @@ export function addToCart(productInfo) {
   };
 }
 
+//action creator
 export function removeFromCart(index) {
   return {
     type: REMOVE_FROM_CART,
-    productInfo,
+    index,
   };
 }
 
