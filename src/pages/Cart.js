@@ -2,12 +2,12 @@ import React from "react";
 import CartItem from "../components/CartItem";
 import ProductsApi from "../api/prouductsApi.json";
 import { connect, useDispatch, useSelector } from "react-redux";
-import { removeFromCart } from "../store/actions/actions";
+import { removeFromCart } from "../store/cart";
 
 const Cart = (props) => {
-  const cart = useSelector((s) => s.cart);
+  const {products} = useSelector((s) => s.cart);
   const dispatch = useDispatch();
-  console.log(cart);
+  console.log(products);
 
   const handleDeleteToCart = (index) => {
     // console.log("delete From card was clicked ");
@@ -17,11 +17,11 @@ const Cart = (props) => {
     <div>
       <h1>Cart Page</h1>
       <div className="row">
-        {cart.map((item, index) => (
-          <div className={"col-4"} key={item.product.id}>
+        {products && products.map((product, index) => (
+          <div className={"col-4"} key={product.id}>
             <CartItem
               handleDeleteToCart={handleDeleteToCart}
-              item={item}
+              product={product}
               index={index}
             />
           </div>

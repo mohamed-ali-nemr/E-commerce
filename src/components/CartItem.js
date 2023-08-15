@@ -2,16 +2,8 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { removeFromCart } from "../store/actions/actions";
 
-const CartItem = (props) => {
-  const { item, index, handleDeleteToCart } = props;
-  const { product } = item;
-
-  // const [state, setState] = useState();
-
-  // useEffect(() => {
-  // console.log("class component cart item mounting");
-  // setState({state});
-  // }, [product]);
+const CartItem = ({...props}) => {
+  const { product, index, handleDeleteToCart } = props;
 
   return (
     <div className="card">
@@ -29,10 +21,5 @@ const CartItem = (props) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    removeFromCart: (index) => dispatch(removeFromCart(index)),
-  };
-};
 
-export default connect(null, mapDispatchToProps)(CartItem);
+export default CartItem;

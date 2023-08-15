@@ -1,10 +1,11 @@
 import React from "react";
 import product from "../api/prouductsApi.json";
 import { useParams } from "react-router-dom";
-import { addToCart } from "../store/actions/actions";
-import { connect } from "react-redux";
+import { addToCart } from "../store/cart";
+import { useDispatch } from "react-redux";
 
 const ProductDetails = (props) => {
+  const dispatch = useDispatch();
   const id = useParams().id;
   // console.log(id);
 
@@ -12,8 +13,7 @@ const ProductDetails = (props) => {
   // console.log(pro);
 
   const handleAddToCart = (pro) => {
-    console.log("ad to card was clicked ");
-    props.addToCart(pro);
+    dispatch(addToCart(pro))
   };
 
   return (
@@ -33,10 +33,4 @@ const ProductDetails = (props) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addToCart: (productInfo) => dispatch(addToCart(productInfo)),
-  };
-};
-
-export default connect(null, mapDispatchToProps)(ProductDetails);
+export default ProductDetails;
