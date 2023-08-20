@@ -2,25 +2,21 @@ import React from "react";
 import CartItem from "../components/CartItem";
 import ProductsApi from "../api/prouductsApi.json";
 import { connect, useDispatch, useSelector } from "react-redux";
-import { removeFromCart } from "../store/actions/actions";
+// import { removeFromCart } from "../store/actions/actions";
 
 const Cart = (props) => {
-  const cart = useSelector((s) => s.cart);
-  const dispatch = useDispatch();
-  console.log(cart);
+  // const cart = useSelector((s) => s.cart);
+  // console.log(cart);
+  // const dispatch = useDispatch();
 
-  const handleDeleteToCart = (index) => {
-    // console.log("delete From card was clicked ");
-    dispatch(removeFromCart(index));
-  };
   return (
     <div>
       <h1>Cart Page</h1>
       <div className="row">
-        {cart.map((item, index) => (
-          <div className={"col-4"} key={item.product.id}>
+        {props.cartItems.map((item, index) => (
+          <div className={"col-4"} key={index}>
             <CartItem
-              handleDeleteToCart={handleDeleteToCart}
+              // handleDeleteToCart={handleDeleteToCart}
               item={item}
               index={index}
             />
@@ -28,6 +24,7 @@ const Cart = (props) => {
         ))}
       </div>
       <br />
+      <h3>Total: {props.total}</h3>
       <button className="btn btn-primary btn-block">Pay order</button>
     </div>
   );
@@ -36,7 +33,11 @@ const Cart = (props) => {
 const mapStateToProps = (state) => {
   return {
     cartItems: state.cart,
+    total: state.cart.reduce(
+      (total, item) => total + item.quantity * item.product.price,
+      0
+    ),
   };
 };
 
-export default Cart;
+export default connect(mapStateToProps)(Cart);

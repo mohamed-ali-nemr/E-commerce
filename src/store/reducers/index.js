@@ -10,6 +10,7 @@ export default function cartReducer(state, action) {
           ...state.cart,
           {
             product: action.productInfo,
+            quantity: action.quantity
           },
         ],
       };
@@ -19,7 +20,7 @@ export default function cartReducer(state, action) {
       const item_index = action.index;
       const new_state = { ...state };
       delete new_state.cart[item_index];
-      state.cart = new_state.cart;
+      // state.cart = new_state.cart;
       // new_state.splice(item_index, 1);
       return new_state;
     }

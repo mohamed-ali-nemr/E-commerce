@@ -3,15 +3,14 @@ import { connect } from "react-redux";
 import { removeFromCart } from "../store/actions/actions";
 
 const CartItem = (props) => {
-  const { item, index, handleDeleteToCart } = props;
+  const { item, index } = props;
   const { product } = item;
 
-  // const [state, setState] = useState();
-
-  // useEffect(() => {
-  // console.log("class component cart item mounting");
-  // setState({state});
-  // }, [product]);
+  const handleDeleteToCart = (index) => {
+    console.log("delete From card was clicked ");
+    props.removeFromCart(index);
+    // dispatch(removeFromCart(index));
+  };
 
   return (
     <div className="card">
@@ -19,8 +18,14 @@ const CartItem = (props) => {
 
       <div className="card-body">
         <h4>{product.title}</h4>
-        <h4>{product.id}</h4>
-        <h5>{product.body}</h5>
+        <p className="card-text">
+          Price: {product.price}$
+          <br />
+          Quantity: {item.quantity}
+          <br />
+          Total: {item.quantity * product.price} $
+        </p>
+
         <button className="btn" onClick={() => handleDeleteToCart(index)}>
           Delete
         </button>

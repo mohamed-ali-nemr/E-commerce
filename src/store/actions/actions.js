@@ -1,10 +1,11 @@
-import {ADD_TO_CART,REMOVE_FROM_CART} from "./types"
+import { ADD_TO_CART, REMOVE_FROM_CART } from "./types";
 
 //action creator
-export function addToCart(productInfo) {
+export function addToCart(productInfo, quantity) {
   return {
     type: ADD_TO_CART,
     productInfo,
+    quantity,
   };
 }
 
@@ -15,5 +16,3 @@ export function removeFromCart(index) {
     index,
   };
 }
-
-
