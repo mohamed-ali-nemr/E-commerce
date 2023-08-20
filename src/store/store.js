@@ -2,10 +2,7 @@ import { createStore } from "redux";
 import cartReducer from "./reducers";
 
 const initialState = {
-  cart: [
-    
-    
-  ],
+  cart: [],
 };
 
 // const reducers=(state)=>{
