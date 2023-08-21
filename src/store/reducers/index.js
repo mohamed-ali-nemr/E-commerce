@@ -1,4 +1,4 @@
-import { ADD_TO_CART, REMOVE_FROM_CART } from "../actions/types";
+import { ADD_TO_CART, REMOVE_FROM_CART, CLEAR_CART } from "../actions/types";
 
 export default function cartReducer(state, action) {
   console.log(state, action);
@@ -10,7 +10,7 @@ export default function cartReducer(state, action) {
           ...state.cart,
           {
             product: action.productInfo,
-            quantity: action.quantity
+            quantity: action.quantity,
           },
         ],
       };
@@ -22,6 +22,12 @@ export default function cartReducer(state, action) {
       delete new_state.cart[item_index];
       // state.cart = new_state.cart;
       // new_state.splice(item_index, 1);
+      return new_state;
+    }
+
+    case CLEAR_CART: {
+      const new_state = {...state };
+      new_state.cart = [];
       return new_state;
     }
 

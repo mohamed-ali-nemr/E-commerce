@@ -24,8 +24,7 @@ const Cart = (props) => {
         ))}
       </div>
       <br />
-      <h3>Total: {props.total}</h3>
-      <button className="btn btn-primary btn-block">Pay order</button>
+      <h3>Total: {props.total} $</h3>
     </div>
   );
 };
@@ -39,5 +38,7 @@ const mapStateToProps = (state) => {
     ),
   };
 };
+
+
 
 export default connect(mapStateToProps)(Cart);
