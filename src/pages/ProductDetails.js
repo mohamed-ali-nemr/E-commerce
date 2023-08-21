@@ -37,7 +37,7 @@ const ProductDetails = (props) => {
       <input type="number" value={quantity} onChange={handleQuantity} />
       <br />
       <br />
-      <p>Total: {quantity * pro.price}</p>
+      <p>Total: {quantity * pro.price} $</p>
       <button className="btn btn-primary" onClick={() => handleAddToCart(pro)}>
         Add to Cart
       </button>
