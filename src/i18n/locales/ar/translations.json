@@ -1,0 +1,13 @@
+{
+  "Prouduct": "المنتجات",
+  "Cart": "عربة التسوق",
+  "Check Out": "الدفع",
+  "this-is-page2": "Esta es la <strong>página 2</strong>",
+  "go-to-home": "Ir a la <0>pagina principal</0>",
+  "welcome": "Bienvenido {{username}}",
+  "title": "العنوان: {{titleData}}",
+  "Price": "السعر: {{priceData}}",
+  "change-username": "Cambia tu nombre de usuario:",
+  "Details": "التفاصيل",
+  "go-to-page2": "Haga clic <0>aquí</0> para ir a la página 2, {{username}}"
+}

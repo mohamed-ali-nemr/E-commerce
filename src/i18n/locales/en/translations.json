@@ -1,0 +1,13 @@
+{
+  "Prouduct": "Prouduct",
+  "Cart": "Cart",
+  "Check Out": "Check Out",
+  "this-is-page2": "This is <strong>page 2</strong>",
+  "go-to-home": "Go to <0>the home page</0>",
+  "welcome": "Welcome, {{username}}",
+  "title": "title: {{titleData}}",
+  "Price": "Price: {{priceData}}",
+  "change-username": "Change your username:",
+  "Details": "Details",
+  "go-to-page2": "Click <0>here</0> to go to page 2, {{username}}"
+}

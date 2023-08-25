@@ -4,6 +4,7 @@ import store from "./store/store";
 
 //component
 import CartIcon from "./components/CartIcon";
+import Footer from "./components/Footer";
 
 //pages
 import Home from "./pages/Home";
@@ -11,12 +12,20 @@ import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import ChechOut from "./pages/ChechOut";
 
+//Localization
+import { useTranslation } from "react-i18next";
+
+
+
 // function App() {
 //   // console.log("App comp.")
 //   return;
 // }
 
 function AppWithStore() {
+  const { t } = useTranslation();
+
+  
   return (
     <Provider store={store}>
       <Router>
@@ -44,17 +53,17 @@ function AppWithStore() {
               <ul className="navbar-nav mr-auto">
                 <li className="nav-item active">
                   <Link className="nav-link" to="/">
-                    Prouduct
+                    {t('Prouduct')}
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/cart">
-                    Cart
+                    {t('Cart')}
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/check-out">
-                    Check Out
+                    {t('Check Out')}
                   </Link>
                 </li>
               </ul>
@@ -74,10 +83,11 @@ function AppWithStore() {
                  <Route path="/check-out" > <ChechOut /> </Route>
              </Switch>
           </main>
+          <Footer />
         </div>
       </Router>
     </Provider>
   );
 }
 
-export default AppWithStore;
+export default  AppWithStore;

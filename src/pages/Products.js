@@ -2,8 +2,13 @@ import React from "react";
 import ProductItem from "../components/ProductItem";
 import ProductsApi from "../api/prouductsApi.json";
 
+//Localization
+//higher order component (HOC)
+import { withTranslation } from "react-i18next";
 
-const Products = () => {
+const Products = (props) => {
+  const { t } = props;
+
   // let img1 = "https://images.unsplash.com/photo-1498050108023-c5249f4df085";
   // let img2 = "https://images.unsplash.com/photo-1505740420928-5e560c06d30e";
   // let img3 = "https://images.unsplash.com/photo-1454165205744-3b78555e5572";
@@ -33,7 +38,7 @@ const Products = () => {
   // ];
 
   const handleDetails = () => {
-    console.log("details on products is clicked ")
+    console.log("details on products is clicked ");
   };
 
   return (
@@ -50,4 +55,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default withTranslation()(Products);
