@@ -31,8 +31,8 @@ const Cart = (props) => {
         ))}
       </div>
       <br />
-      <h3>Total: {props.total} $$</h3>
-      <h3>New Total: {count} $$</h3>
+      <h3>Total: {props.total+count} $$</h3>
+      {/* <h3>New Total: {count} $$</h3> */}
     </div>
   );
 };
