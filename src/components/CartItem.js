@@ -1,26 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { removeFromCart } from "../store/reducers/cart";
+import { removeFromCart, setQuantity } from "../store/reducers/cart";
 
 
 //we add use useDispatch asper 
 // import { connect } from "react-redux";
 // import { addToCart } from "../store/actions/actions";
 
-const CartItem = ({...props}) => {
+const CartItem = ({ ...props }) => {
   const { product, index, newGeneralTotalAfterCHange } = props;
-// console.log(product)
+  // console.log(product)
 
   const dispatch = useDispatch();
 
-  const [quantity, setquantity] = useState(0);
-  const handleCartQuantity = (event) => {
+
+  // useEffect(() => {
+  //   console.log("use effect cartitem ", product)
+  //   dispatch(setQuantity({ id: 1, qty: 1 }));
+  // }, [])
+
+  const handleCartQuantity = (event, id) => {
     // console.log(event);
     const value = event.target.value;
     if (value < 0) return;
-    setquantity(value);
+    dispatch(setQuantity({ id: index, qty: value }));
   };
- 
+
 
   const handleDeleteToCart = (index) => {
     // console.log("delete From card was clicked ");
@@ -28,8 +33,8 @@ const CartItem = ({...props}) => {
   };
 
 
-  const cont =
-     quantity * product.price ;
+  const cont = product.price;
+
 
   return (
     <div className="card">
@@ -39,11 +44,12 @@ const CartItem = ({...props}) => {
         <p className="card-text">
           Price: {product.price}$
           <br />
-          Quantity: {product.quantity }
+          Total: {product.total} $
           <br />
-          Total: {product.quantity * product.price} $
-          <br />
-          Quantity: <input type="number" value={product.quantity} onChange={handleCartQuantity} />
+          Quantity: <input type="number" value={product.qty} onChange={(e) => {
+            console.log("event triggered")
+            handleCartQuantity(e, product.id)
+          }} />
           <br />
           {/* <br />
           New Total: {quantity * product.price} $
@@ -52,12 +58,6 @@ const CartItem = ({...props}) => {
           <br />
           New General Total : {props.total + quantity * product.price + item.quantity * product.price} $ */}
         </p>
-
-        <button
-          className="btn"
-          onClick={() => newGeneralTotalAfterCHange(cont)} >
-          Calculate New Total $
-        </button>
 
         <button className="btn" onClick={() => handleDeleteToCart(index)}>
           Delete
