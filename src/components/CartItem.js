@@ -1,12 +1,17 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
-import { removeFromCart } from "../store/actions/actions";
+import { useDispatch } from "react-redux";
+import { removeFromCart } from "../store/reducers/cart";
+
+
+//we add use useDispatch asper 
+// import { connect } from "react-redux";
 // import { addToCart } from "../store/actions/actions";
 
-const CartItem = (props) => {
-  // console.log("the props is " + props);
-  const { item, index, newGeneralTotalAfterCHange } = props;
-  const { product } = item;
+const CartItem = ({...props}) => {
+  const { product, index, newGeneralTotalAfterCHange } = props;
+// console.log(product)
+
+  const dispatch = useDispatch();
 
   const [quantity, setquantity] = useState(0);
   const handleCartQuantity = (event) => {
@@ -15,15 +20,16 @@ const CartItem = (props) => {
     if (value < 0) return;
     setquantity(value);
   };
+ 
 
   const handleDeleteToCart = (index) => {
     // console.log("delete From card was clicked ");
-    props.removeFromCart(index);
-    // dispatch(removeFromCart(index));
+    dispatch(removeFromCart(index));
   };
 
+
   const cont =
-    props.total + quantity * product.price + item.quantity * product.price;
+     quantity * product.price ;
 
   return (
     <div className="card">
@@ -33,21 +39,24 @@ const CartItem = (props) => {
         <p className="card-text">
           Price: {product.price}$
           <br />
-          Total: {item.quantity * product.price} $
+          Quantity: {product.quantity }
           <br />
-          Quantity: <input type="number" value={quantity} onChange={handleCartQuantity} />
+          Total: {product.quantity * product.price} $
           <br />
+          Quantity: <input type="number" value={product.quantity} onChange={handleCartQuantity} />
+          <br />
+          {/* <br />
           New Total: {quantity * product.price} $
           <br />
           Total after Edit: {quantity * product.price + item.quantity * product.price} $
           <br />
-          New General Total : {props.total + quantity * product.price + item.quantity * product.price} $
+          New General Total : {props.total + quantity * product.price + item.quantity * product.price} $ */}
         </p>
 
         <button
           className="btn"
           onClick={() => newGeneralTotalAfterCHange(cont)} >
-          Calculate New General Total $
+          Calculate New Total $
         </button>
 
         <button className="btn" onClick={() => handleDeleteToCart(index)}>
@@ -58,20 +67,22 @@ const CartItem = (props) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    removeFromCart: (index) => dispatch(removeFromCart(index)),
-  };
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     removeFromCart: (index) => dispatch(removeFromCart(index)),
+//   };
+// };
 
-const mapStateToProps = (state) => {
-  return {
-    cartItems: state.cart,
-    total: state.cart.reduce(
-      (total, item) => total + item.quantity * item.product.price,
-      0
-    ),
-  };
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     cartItems: state.cart,
+//     total: state.cart.reduce(
+//       (total, item) => total + item.quantity * item.product.price,
+//       0
+//     ),
+//     totalQuantity: state.cart.reduce(
+//       (total, item) => total + parseInt(item.quantity), 0),
+//   };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CartItem);
+export default CartItem;

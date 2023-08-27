@@ -1,10 +1,12 @@
 import React from "react";
-import { useState } from "react";
-import { connect } from "react-redux";
-import {clearCart} from "../store/actions/actions";
+import { useSelector } from "react-redux";
+import {clearCart} from "../store/reducers/cart";
+
 
 
 const ChechOut = (props) => {
+  const { products, quantity } = useSelector((s) => s.cart);
+
 
   const handlePlaceOrder = () => {
     // send the request to the server
@@ -66,7 +68,7 @@ const ChechOut = (props) => {
 
       {/* //seconed part from checkout */}
       <div className="quickcheckout-content cart-content">
-        {props.cartItems.map((item, index) => (
+        {products.map((product, index) => (
           <table key={index} className="quickcheckout-cart">
             <thead>
               <tr>
@@ -81,7 +83,7 @@ const ChechOut = (props) => {
               <tr>
                 <td className="image">
                   <img
-                    src={item.product.image}
+                    src={product.image}
                     alt=""
                     width="200"
                     height="150"
@@ -89,19 +91,19 @@ const ChechOut = (props) => {
                 </td>
 
                 <td className="name card-body">
-                  <div>{item.product.title}</div>
+                  <div>{product.title}</div>
                 </td>
 
                 <td className="card-text price1 hidden-xs hidden-sm">
-                  {item.product.price}
+                  {product.price}
                 </td>
 
                 <td className="quantity">
-                  <div className="qty-block">{item.quantity}</div>
+                  <div className="qty-block">{quantity}</div>
                 </td>
 
                 <td className="total text-right">
-                  {item.quantity * item.product.price} $
+                  {quantity * product.price} $
                 </td>
               </tr>
             </tbody>
@@ -119,27 +121,29 @@ const ChechOut = (props) => {
           </tbody>
         </table>
       </div>
-      <button className="btn btn-primary btn-block"  onClick={handlePlaceOrder}>Pay order</button>
+      <button className="btn btn-primary btn-block" 
+      //  onClick={handlePlaceOrder}
+       >Pay order</button>
 
     </div>
     
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    cartItems: state.cart,
-    total: state.cart.reduce(
-      (total, item) => total + item.quantity * item.product.price,
-      0
-    ),
-  };
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     cartItems: state.cart,
+//     total: state.cart.reduce(
+//       (total, item) => total + item.quantity * item.product.price,
+//       0
+//     ),
+//   };
+// };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-      clearCart: () => dispatch(clearCart()),
-  };
-}
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//       clearCart: () => dispatch(clearCart()),
+//   };
+// }
 
-export default connect(mapStateToProps,mapDispatchToProps)(ChechOut);
+export default ChechOut;

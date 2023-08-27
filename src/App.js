@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Provider } from "react-redux";
-import store from "./store/store";
+import {store} from "./store/store";
 
 //component
 import CartIcon from "./components/CartIcon";
