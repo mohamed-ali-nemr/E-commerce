@@ -13,7 +13,6 @@ const ChechOut = () => {
     // send the request to the server
     // clear cart
     dispatch(clearCart());
-    dispatch(setQuantity());
     alert('We recieved your order, and we are working on it.');
 };
 
