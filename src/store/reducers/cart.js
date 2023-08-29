@@ -15,12 +15,24 @@ export const removeFromCart = createAsyncThunk(
     }
 );
 
+export const setQuantity = createAsyncThunk(
+    'cart/setQuantity',
+    async (payload) => {
+        return payload;
+    }
+);
+const recCalcCart=(state)=>{
+    state.total=state.products.reduce((a,p)=>a+=p.total,0);
+    state.totalQty=state.products.reduce((a,p)=>a+=p.qty,0);
+}
 
 //4. Createslice
 const invoicesSlice = createSlice({
     name: 'cart',
     initialState: {
         products: [],
+        total:0,
+        totalQty:0,
         loading: false,
         error: null,
     },
@@ -31,10 +43,17 @@ const invoicesSlice = createSlice({
         builder
             .addCase(addToCart.fulfilled, (state, action) => {
                 state.products = [...state.products, action.payload]
+                recCalcCart(state)
                 // state.products.push(action.payload)
             })
             .addCase(removeFromCart.fulfilled, (state, action) => {
                 state.products = state.products.filter((p,i)=>i!==action.payload)
+                recCalcCart(state)
+            })
+            .addCase(setQuantity.fulfilled, (state, action) => {
+                state.products[action.payload.id].qty = parseInt(action.payload.qty);
+                state.products[action.payload.id].total = parseInt(action.payload.qty) * parseFloat(state.products[action.payload.id].price);
+                recCalcCart(state)
             })
             .addMatcher(
                 (action) => action.type.endsWith('/pending'),

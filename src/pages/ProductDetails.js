@@ -15,11 +15,8 @@ const ProductDetails = (props) => {
   // console.log(pro);
 
 
-
-
-  const [quantity, setquantity] = useState(0);
+  const [quantity, setquantity] = useState(1);
   const handleQuantity = (event) => {
-    console.log(event);
     const value = event.target.value;
     if (value < 0) return;
     setquantity(value);
@@ -45,7 +42,7 @@ const ProductDetails = (props) => {
       <br />
       <br />
       <p>Total: {quantity * pro.price} $</p>
-      <button className="btn btn-primary" onClick={() => handleAddToCart(pro)}>
+      <button className="btn btn-primary" onClick={() => handleAddToCart({ ...pro, qty: parseInt(quantity), total: quantity * pro.price })}>
         Add to Cart
       </button>
     </article>

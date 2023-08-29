@@ -7,13 +7,9 @@ import { useSelector } from "react-redux";
 // import { removeFromCart } from "../store/actions/actions";
 
 const Cart = (props) => {
-  const { products } = useSelector((s) => s.cart);
+  const { products,total,totalQty } = useSelector((s) => s.cart);
   // console.log(cart);
 
-  const [count, setCount] = useState(0);
-  const newGeneralTotalAfterCHange = (Cont) => {
-    setCount((otherCont) => otherCont + Cont);
-  };
 
   return (
     <div>
@@ -26,14 +22,13 @@ const Cart = (props) => {
                 // handleDeleteToCart={handleDeleteToCart}
                 product={product}
                 index={index}
-                newGeneralTotalAfterCHange={newGeneralTotalAfterCHange}
               />
             </div>
           ))}
       </div>
       <br />
       <h3>
-        Total num of prod.({props.totalQuantity}) : {props.total + count} $$
+        Total num of prod.({totalQty}) : {total} $$
       </h3>
     </div>
   );
