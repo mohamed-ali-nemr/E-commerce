@@ -4,7 +4,7 @@ import {clearCart, setQuantity} from "../store/reducers/cart";
 
 
 
-const ChechOut = (props) => {
+const ChechOut = () => {
   const { products, total } = useSelector((s) => s.cart);
   const dispatch = useDispatch();
 
@@ -12,8 +12,8 @@ const ChechOut = (props) => {
   const handlePlaceOrder = () => {
     // send the request to the server
     // clear cart
-    dispatch(setQuantity());
     dispatch(clearCart());
+    dispatch(setQuantity());
     alert('We recieved your order, and we are working on it.');
 };
 

@@ -33,7 +33,7 @@ const recCalcCart=(state)=>{
     state.totalQty=state.products.reduce((a,p)=>a+=p.qty,0);
 }
 
-//4. Createslice
+//4. Createslice consist of (reducer, action, state )
 const invoicesSlice = createSlice({
     name: 'cart',
     initialState: {
@@ -58,10 +58,10 @@ const invoicesSlice = createSlice({
                 recCalcCart(state)
             })
             .addCase(clearCart.fulfilled, (state, action) => {
-                const newState = {...state };
+                const newState = {...state.products };
                 newState.products = [];
+                recCalcCart(newState)
                 return newState;
-                recCalcCart(state)
             })
             .addCase(setQuantity.fulfilled, (state, action) => {
                 state.products[action.payload.id].qty = parseInt(action.payload.qty);
