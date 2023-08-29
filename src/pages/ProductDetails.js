@@ -25,6 +25,8 @@ const ProductDetails = (props) => {
   const handleAddToCart = (pro) => {
     console.log("ad to card was clicked ");
     dispatch(addToCart(pro));
+    alert('We recieved your order, and we are adding product.');
+
   };
 
   return (

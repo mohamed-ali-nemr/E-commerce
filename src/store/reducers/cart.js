@@ -14,6 +14,13 @@ export const removeFromCart = createAsyncThunk(
         return index;
     }
 );
+//3.createAction
+export const clearCart = createAsyncThunk(
+    'cart/clearCart',
+    async () => {
+        return ;
+    }
+);
 
 export const setQuantity = createAsyncThunk(
     'cart/setQuantity',
@@ -48,6 +55,12 @@ const invoicesSlice = createSlice({
             })
             .addCase(removeFromCart.fulfilled, (state, action) => {
                 state.products = state.products.filter((p,i)=>i!==action.payload)
+                recCalcCart(state)
+            })
+            .addCase(clearCart.fulfilled, (state, action) => {
+                const newState = {...state };
+                newState.products = [];
+                return newState;
                 recCalcCart(state)
             })
             .addCase(setQuantity.fulfilled, (state, action) => {

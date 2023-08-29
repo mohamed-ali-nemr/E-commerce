@@ -14,10 +14,6 @@ const CartItem = ({ ...props }) => {
   const dispatch = useDispatch();
 
 
-  // useEffect(() => {
-  //   console.log("use effect cartitem ", product)
-  //   dispatch(setQuantity({ id: 1, qty: 1 }));
-  // }, [])
 
   const handleCartQuantity = (event, id) => {
     // console.log(event);
@@ -30,6 +26,8 @@ const CartItem = ({ ...props }) => {
   const handleDeleteToCart = (index) => {
     // console.log("delete From card was clicked ");
     dispatch(removeFromCart(index));
+    alert('We deleted your order sucessfully');
+
   };
 
 
@@ -50,12 +48,6 @@ const CartItem = ({ ...props }) => {
             handleCartQuantity(e, product.id)
           }} />
           <br />
-          {/* <br />
-          New Total: {quantity * product.price} $
-          <br />
-          Total after Edit: {quantity * product.price + item.quantity * product.price} $
-          <br />
-          New General Total : {props.total + quantity * product.price + item.quantity * product.price} $ */}
         </p>
 
         <button className="btn" onClick={() => handleDeleteToCart(index)}>

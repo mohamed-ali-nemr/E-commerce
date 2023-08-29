@@ -1,17 +1,19 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import {clearCart} from "../store/reducers/cart";
+import { useSelector, useDispatch } from "react-redux";
+import {clearCart, setQuantity} from "../store/reducers/cart";
 
 
 
 const ChechOut = (props) => {
-  const { products, quantity } = useSelector((s) => s.cart);
+  const { products, total } = useSelector((s) => s.cart);
+  const dispatch = useDispatch();
 
 
   const handlePlaceOrder = () => {
     // send the request to the server
     // clear cart
-    props.clearCart();
+    dispatch(setQuantity());
+    dispatch(clearCart());
     alert('We recieved your order, and we are working on it.');
 };
 
@@ -69,7 +71,7 @@ const ChechOut = (props) => {
       {/* //seconed part from checkout */}
       <div className="quickcheckout-content cart-content">
         {products.map((product, index) => (
-          <table key={index} className="quickcheckout-cart">
+          <table key={product.id} className="quickcheckout-cart">
             <thead>
               <tr>
                 <td className="image">Image</td>
@@ -99,11 +101,11 @@ const ChechOut = (props) => {
                 </td>
 
                 <td className="quantity">
-                  <div className="qty-block">{quantity}</div>
+                  <div className="qty-block">{product.qty}</div>
                 </td>
 
                 <td className="total text-right">
-                  {quantity * product.price} $
+                  { product.total} $
                 </td>
               </tr>
             </tbody>
@@ -116,13 +118,13 @@ const ChechOut = (props) => {
               <td className="text-left" colSpan="4">
                 <b>Total:</b>
               </td>
-              <td className="text-right">{props.total} $</td>
+              <td className="text-right">{total} $</td>
             </tr>
           </tbody>
         </table>
       </div>
       <button className="btn btn-primary btn-block" 
-      //  onClick={handlePlaceOrder}
+       onClick={handlePlaceOrder}
        >Pay order</button>
 
     </div>
