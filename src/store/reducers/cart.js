@@ -58,7 +58,7 @@ const invoicesSlice = createSlice({
                 recCalcCart(state)
             })
             .addCase(clearCart.fulfilled, (state, action) => {
-                const newState = {...state.products };
+                const newState = {...state };
                 newState.products = [];
                 recCalcCart(newState)
                 return newState;
