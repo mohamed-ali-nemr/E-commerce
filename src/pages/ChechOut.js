@@ -70,7 +70,7 @@ const ChechOut = () => {
       {/* //seconed part from checkout */}
       <div className="quickcheckout-content cart-content">
         {products.map((product, index) => (
-          <table key={product.id} className="quickcheckout-cart">
+          <table key={index} className="quickcheckout-cart">
             <thead>
               <tr>
                 <td className="image">Image</td>
