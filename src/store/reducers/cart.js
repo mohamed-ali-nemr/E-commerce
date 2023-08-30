@@ -64,6 +64,8 @@ const invoicesSlice = createSlice({
                 return newState;
             })
             .addCase(setQuantity.fulfilled, (state, action) => {
+                if(action.payload.qty < 1)return;
+
                 state.products[action.payload.id].qty = parseInt(action.payload.qty);
                 state.products[action.payload.id].total = parseInt(action.payload.qty) * parseFloat(state.products[action.payload.id].price);
                 recCalcCart(state)

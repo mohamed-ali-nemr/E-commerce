@@ -25,6 +25,19 @@ const CartItem = ({ ...props }) => {
     alert("We deleted your order sucessfully");
   };
 
+  // const [count, setCount] = useState(0);
+
+  const handleIncremwnt = () => {
+    // if (count < 0) return;
+    // setCount(count + 1);
+    dispatch(setQuantity({ id: index, qty: product.qty+1 }));
+  };
+  const handleDecremwnt = () => {
+    // if (count < 0) return;
+    // setCount(count- 1);
+    dispatch(setQuantity({ id: index, qty:  product.qty-1  }));
+  };
+
   return (
     // <div className="card">
     //   <img src={product.image} alt="" />
@@ -54,7 +67,7 @@ const CartItem = ({ ...props }) => {
           <h3>{product.title}</h3>
           <p className="w3-opacity"> Price: {product.price}$</p>
           <p className="w3-opacity"> total: {product.total}$</p>
-          Quantity:{" "}
+          {/* Quantity:
           <input
             type="number"
             value={product.qty}
@@ -62,13 +75,18 @@ const CartItem = ({ ...props }) => {
               console.log("event triggered");
               handleCartQuantity(e, product.id);
             }}
-          />
+          /> */}
+          Quantity: {product.qty}
+          <button className="w3-button w3-grey btn-footer"
+            onClick={ handleIncremwnt} > + </button>
+          <button className="w3-button w3-grey btn-footer"
+            onClick={handleDecremwnt} > - </button>
           <br />
           <br />
           <p>
             <button
               class="w3-button w3-grey w3-block"
-              onClick={() => handleDeleteToCart(index) }
+              onClick={() => handleDeleteToCart(index)}
             >
               Delete
             </button>

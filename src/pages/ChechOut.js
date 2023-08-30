@@ -69,7 +69,7 @@ const ChechOut = () => {
 
       {/* //seconed part from checkout */}
       <div className="quickcheckout-content cart-content">
-      <h3>Billing Products</h3>
+      <h3>Purchases of products</h3>
         {products.map((product, index) => (
           <table key={index} className="quickcheckout-cart">
             <thead>

@@ -29,7 +29,7 @@ const ProductDetails = (props) => {
 
   return (
     <article className="container post-details">
-      {/* <div className="post-details-title">
+      <div className="post-details-title">
         <h2> {pro.title} </h2>
       </div>
       <img src={pro.image} alt="" className="post-details-img" />
@@ -42,10 +42,10 @@ const ProductDetails = (props) => {
       <br />
       <br />
       <p>Total: {quantity * pro.price} $</p>
-      <button className="btn btn-primary" onClick={() => handleAddToCart({ ...pro, qty: parseInt(quantity), total: quantity * pro.price })}>
+      <button className="w3-button w3-grey w3-block" onClick={() => handleAddToCart({ ...pro, qty: parseInt(quantity), total: quantity * pro.price })}>
         Add to Cart
-      </button> */}
-      <div class="w3-display-container" >
+      </button>
+      {/* <div class="w3-display-container" >
         <img src={pro.image} alt="" width={970}/>
         <div className="w3-padding w3-display-topmiddle w3-white">{pro.title}</div>
         <div className="w3-padding w3-display-middle w3-white">{pro.body}</div>
@@ -67,7 +67,7 @@ const ProductDetails = (props) => {
         >
           Add to Cart
         </button>
-      </div>
+      </div> */}
     </article>
   );
 };
