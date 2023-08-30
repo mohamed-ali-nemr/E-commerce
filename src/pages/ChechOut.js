@@ -18,7 +18,7 @@ const ChechOut = () => {
 
   return (
     <div>
-      <h1>Check Out Page </h1>
+      {/* <h1>Check Out Page </h1> */}
 <br/><br/>
       {/* //first part from checkout */}
       <div className="col-50">
@@ -69,6 +69,7 @@ const ChechOut = () => {
 
       {/* //seconed part from checkout */}
       <div className="quickcheckout-content cart-content">
+      <h3>Billing Products</h3>
         {products.map((product, index) => (
           <table key={index} className="quickcheckout-cart">
             <thead>
@@ -122,7 +123,7 @@ const ChechOut = () => {
           </tbody>
         </table>
       </div>
-      <button className="btn btn-primary btn-block" 
+      <button className="w3-button w3-grey w3-block" 
        onClick={handlePlaceOrder}
        >Pay order</button>
 

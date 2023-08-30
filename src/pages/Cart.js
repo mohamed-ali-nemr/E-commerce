@@ -13,11 +13,11 @@ const Cart = (props) => {
 
   return (
     <div>
-      <h1>Cart Page</h1>
+      {/* <h1>Cart Page</h1> */}
       <div className="row">
         {
           products.map((product, index) => (
-            <div className={"col-4"} key={product.id}>
+            <div className={"col-12"} key={product.id}>
               <CartItem
                 // handleDeleteToCart={handleDeleteToCart}
                 product={product}

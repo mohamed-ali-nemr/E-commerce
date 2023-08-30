@@ -9,11 +9,11 @@ const Footer = () => {
   };
 
   return (
-    <div className="footer">
-      <button className="btn-footer " onClick={handleChangeLanguage} value="en">
+    <div className="footer ">
+      <button className="w3-button w3-grey  btn-footer" onClick={handleChangeLanguage} value="en">
         English
       </button>
-      <button className="btn-footer " onClick={handleChangeLanguage} value="ar">
+      <button className="w3-button w3-grey  btn-footer" onClick={handleChangeLanguage} value="ar">
         العربيه
       </button>
     </div>

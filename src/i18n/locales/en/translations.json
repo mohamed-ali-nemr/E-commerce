@@ -7,6 +7,7 @@
   "welcome": "Welcome, {{username}}",
   "title": "title: {{titleData}}",
   "Price": "Price: {{priceData}}",
+  "body": "body: {{bodyData}}",
   "change-username": "Change your username:",
   "Details": "Details",
   "go-to-page2": "Click <0>here</0> to go to page 2, {{username}}"
