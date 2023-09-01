@@ -14,7 +14,8 @@ import ChechOut from "./pages/ChechOut";
 
 //Localization
 import { useTranslation } from "react-i18next";
-
+import React, { useEffect } from "react";
+import i18n from 'i18next';
 
 
 // function App() {
@@ -25,9 +26,15 @@ import { useTranslation } from "react-i18next";
 function AppWithStore() {
   const { t } = useTranslation();
 
+
+  useEffect(() => {
+    const dir = i18n.dir(i18n.language);
+    document.documentElement.dir = dir;
+ }, [i18n, i18n.language]);
+
   
   return (
-    <Provider store={store}>
+    <Provider dir="rtl" store={store}>
       <Router>
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
