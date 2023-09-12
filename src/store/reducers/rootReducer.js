@@ -1,10 +1,10 @@
 import cart from "./cart";
-// import product from './product'
+import stock from './product'
 
 //3. createReducer
 const rootReducer = {
   cart,
-  // product,
+  stock,
 };
 
 export default rootReducer;

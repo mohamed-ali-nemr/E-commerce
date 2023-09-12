@@ -14,8 +14,16 @@ import ChechOut from "./pages/ChechOut";
 
 //Localization
 import { useTranslation } from "react-i18next";
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import i18n from 'i18next';
+
+//search 
+import { SearchBar } from "./components/SearchBar";
+import { SearchResultsList } from "./components/SearchResultsList";
+
+//json data 
+import { Stocks } from "./pages/Stocks";
+import StocksView  from "./pages/StocksView";
 
 
 // function App() {
@@ -32,6 +40,7 @@ function AppWithStore() {
     document.documentElement.dir = dir;
  }, [i18n, i18n.language]);
 
+ const [results, setResults] = useState([]);
   
   return (
     <Provider dir="rtl" store={store}>
@@ -58,6 +67,11 @@ function AppWithStore() {
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav mr-auto">
+              {/* <li className="nav-item active">
+                  <Link className="nav-link" to="/stocks">
+                    {t('Stocks')}
+                  </Link>
+                </li> */}
                 <li className="nav-item active">
                   <Link className="nav-link" to="/">
                     {t('Prouduct')}
@@ -75,16 +89,34 @@ function AppWithStore() {
                 </li>
               </ul>
             </div>
-
             <CartIcon />
           </nav>
+
+          {/* <form action="/">
+              <input type="text" placeholder="Search.." name="search"></input>
+          </form> */}
+
+
+          <div className="search-bar-container">
+           
+              {/* <div>SearchBar</div>
+              <div>SearchResultsList</div> */}
+           
+              <SearchBar setResults={setResults} />
+              {results && results.length > 0 && <SearchResultsList results={results} />}
+          
+          </div>
+    
 
           <main className="container">
             {/* <Home /> */}
             {/* <ProductDetails /> */}
             {/* <ChechOut /> */}
+            {/* <StocksView /> */}
             <Switch>
                  <Route path="/" exact  > <Home /> </Route> 
+                 <Route path="/stocks" > <Stocks /> </Route>
+                 <Route path="/stocks-view" > <StocksView /> </Route>
                  <Route path="/details/:id" > <ProductDetails /> </Route>
                  <Route path="/cart" > <Cart /> </Route>
                  <Route path="/check-out" > <ChechOut /> </Route>
