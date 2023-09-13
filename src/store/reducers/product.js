@@ -5,9 +5,8 @@ const url = "http://localhost:3000/";
 
 //2.createAction
 export const getAllStocks = createAsyncThunk("stock/getAllStocks", async () => {
-  const resp = await fetch("https://jsonplaceholder.typicode.com/posts").then(
-    (response) => response.json()
-  );
+  const resp = await fetch("https://jsonplaceholder.typicode.com/posts")
+  .then ((response) => response.json())
   console.log(resp);
   return resp;
 });

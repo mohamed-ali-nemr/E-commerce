@@ -2,6 +2,8 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {clearCart} from "../store/reducers/cart";
 
+import { Link } from "react-router-dom";
+
 
 
 const ChechOut = () => {
@@ -23,7 +25,12 @@ const ChechOut = () => {
       {/* //first part from checkout */}
       <div className="col-50">
         <h3>Billing Address</h3>
-        <label htmlFor="fname">
+
+        <Link to={`/registration`}>
+            <button class="w3-button w3-grey w3-block">Buy Now</button>
+            <br />
+          </Link>
+        {/* <label htmlFor="fname">
           <i className="fa fa-user"></i> Full Name
         </label>
         <input
@@ -53,9 +60,9 @@ const ChechOut = () => {
         <label htmlFor="city">
           <i className="fa fa-institution"></i> City
         </label>
-        <input type="text" id="city" name="city" placeholder="New York"></input>
+        <input type="text" id="city" name="city" placeholder="New York"></input> */}
 
-        <div className="row">
+        {/* <div className="row">
           <div className="col-50">
             <label htmlFor="state">State</label>
             <input type="text" id="state" name="state" placeholder="NY"></input>
@@ -64,15 +71,16 @@ const ChechOut = () => {
             <label htmlFor="zip">Zip</label>
             <input type="text" id="zip" name="zip" placeholder="10001"></input>
           </div>
-        </div>
+        </div> */}
+
       </div>
 
       {/* //seconed part from checkout */}
       <div className="quickcheckout-content cart-content">
-      <h3>Purchases of products</h3>
+      <h3>Purchases Of Products</h3>
         {products.map((product, index) => (
-          <table key={index} className="quickcheckout-cart">
-            <thead>
+          <table key={index} className="table table-bordered quickcheckout-cart">
+            {/* <thead>
               <tr>
                 <td className="image">Image</td>
                 <td className="name">Product Name</td>
@@ -80,7 +88,7 @@ const ChechOut = () => {
                 <td className="quantity">Quantity</td>
                 <td className="total text-right">Total</td>
               </tr>
-            </thead>
+            </thead> */}
             <tbody>
               <tr>
                 <td className="image">

@@ -25,6 +25,10 @@ import { SearchResultsList } from "./components/SearchResultsList";
 import { Stocks } from "./pages/Stocks";
 import StocksView  from "./pages/StocksView";
 
+//Registration
+import Registration  from "./pages/Registration";
+
+
 
 // function App() {
 //   // console.log("App comp.")
@@ -92,15 +96,8 @@ function AppWithStore() {
             <CartIcon />
           </nav>
 
-          {/* <form action="/">
-              <input type="text" placeholder="Search.." name="search"></input>
-          </form> */}
-
 
           <div className="search-bar-container">
-           
-              {/* <div>SearchBar</div>
-              <div>SearchResultsList</div> */}
            
               <SearchBar setResults={setResults} />
               {results && results.length > 0 && <SearchResultsList results={results} />}
@@ -117,6 +114,7 @@ function AppWithStore() {
                  <Route path="/" exact  > <Home /> </Route> 
                  <Route path="/stocks" > <Stocks /> </Route>
                  <Route path="/stocks-view" > <StocksView /> </Route>
+                 <Route path="/registration" > <Registration /> </Route>
                  <Route path="/details/:id" > <ProductDetails /> </Route>
                  <Route path="/cart" > <Cart /> </Route>
                  <Route path="/check-out" > <ChechOut /> </Route>
