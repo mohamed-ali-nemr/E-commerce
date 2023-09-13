@@ -606,7 +606,7 @@ td {
 }
 
 /* css for registration  */
-body {
+/* body {
   background: rgb(2, 0, 36);
   background: radial-gradient(
     circle,
@@ -636,7 +636,7 @@ pre {
   width: 70%;
   color: #fff;
   font-size: larger;
-}
+} */
 
 .para {
   color: red;
